@@ -4,14 +4,16 @@ import Garden from './garden'
 
 registerServiceWorker()
 
-const code = document.getElementById('code')
-
-const offsetX = 335
-const offsetY = 625 / 2 - 55
 
 const gardenCanvas = document.getElementById('garden')
-gardenCanvas.width = 670
-gardenCanvas.height = 625
+gardenCanvas.width = window.innerWidth < window.innerHeight ? window.innerWidth : window.innerHeight
+const scalePixel = (pixel) => pixel / 670 * gardenCanvas.width
+
+gardenCanvas.height = scalePixel(625)
+gardenCanvas.style.paddingTop = `${(window.innerHeight - gardenCanvas.height) / 2 * 0.618}px`
+const offsetX = gardenCanvas.width / 2
+const offsetY = gardenCanvas.height / 2 - scalePixel(55)
+
 
 const gardenCtx = gardenCanvas.getContext('2d')
 gardenCtx.globalCompositeOperation = 'lighter'
@@ -24,9 +26,9 @@ setInterval(() => {
 
 const getHeartPoint = (angle) => {
   const t = angle / Math.PI
-  const x = 19.5 * (16 * (Math.sin(t) ** 3))
-  const y =
-    -20 * ((13 * Math.cos(t)) - (5 * Math.cos(2 * t)) - (2 * Math.cos(3 * t)) - Math.cos(4 * t))
+  const x = scalePixel(19.5) * (16 * (Math.sin(t) ** 3))
+  const y = -scalePixel(20) *
+    ((13 * Math.cos(t)) - (5 * Math.cos(2 * t)) - (2 * Math.cos(3 * t)) - Math.cos(4 * t))
   return [offsetX + x, offsetY + y]
 }
 
@@ -52,53 +54,27 @@ const timeElapse = (date) => {
   document.getElementById('elapseClock').innerHTML = result
 }
 
-const adjustWordsPosition = () => {
-  const words = document.getElementById('words')
-  words.style.position = 'absolute'
-  words.style.top = `${(
-    gardenCanvas.getBoundingClientRect().top +
-      gardenCanvas.getBoundingClientRect().bottom - gardenCanvas.getBoundingClientRect().top) / 3
-  }px`
-}
-
 const showCopyrights = () => {
   const copyright = document.getElementById('copyright')
-  copyright.style.visibility = 'visible'
+  copyright.innerText = '2015 - Forever ❤️ '
+  copyright.style.transition = 'opacity 5s'
+  copyright.bottom = '5px'
+  copyright.style.opacity = '1'
 }
-
-const showCodes = () => {
-  code.style.visibility = 'visible'
-
-  Array.from(code.children).forEach((child) => {
-    const str = child.innerHTML
-    let progress = 0
-    child.innerHTML = ''
-    const timer = setInterval(() => {
-      const current = str.substr(progress, 1)
-      if (current === '<') {
-        progress = str.indexOf('>', progress) + 1
-      } else {
-        progress += 1
-      }
-      child.innerHTML = str.substring(0, progress) + (progress % 2 ? '_' : '')
-      if (progress >= str.length) {
-        clearInterval(timer)
-        showCopyrights()
-      }
-    }, 75)
-  })
-}
-
 
 const showMessages = () => {
-  adjustWordsPosition()
+  document.getElementById('messageTitle').innerText = '在一起'
   const messages = document.getElementById('messages')
+  const gardenCanvasRect = gardenCanvas.getBoundingClientRect()
+  messages.style.position = 'absolute'
+  const rate = window.innerWidth > window.innerHeight ? 0.281 : 0.223
+  messages.style.top = `${parseFloat(gardenCanvas.style.paddingTop) + gardenCanvasRect.height * rate}px`
   messages.style.transition = 'opacity 5s'
   messages.style.opacity = '1'
 
   setTimeout(() => {
-    showCodes()
-  }, 1200)
+    showCopyrights()
+  }, 2200)
 }
 
 const startHeartAnimation = () => {
