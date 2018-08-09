@@ -48,7 +48,7 @@ const timeElapse = (date) => {
   if (seconds < 10) {
     seconds = `0${seconds}`
   }
-  const result = `<span class="digit">${days}</span> days <span class="digit">${hours}</span> hours <span class="digit">${minutes}</span> minutes <span class="digit">${seconds}</span> seconds`
+  const result = `<span class="digit">${days}</span> 天 <span class="digit">${hours}</span> 小时 <span class="digit">${minutes}</span> 分 <span class="digit">${seconds}</span> 秒`
   document.getElementById('elapseClock').innerHTML = result
 }
 
