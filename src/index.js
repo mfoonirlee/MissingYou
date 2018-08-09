@@ -58,7 +58,7 @@ const showCopyrights = () => {
   const copyright = document.getElementById('copyright')
   copyright.innerText = '2015 - Forever ❤️ '
   copyright.style.transition = 'opacity 5s'
-  copyright.bottom = '5px'
+  copyright.style.bottom = '5px'
   copyright.style.opacity = '1'
 }
 
