@@ -5,4 +5,5 @@ module.exports = {
   privateKey: require('fs').readFileSync('/keys/private_key'),
   from: './build',
   to: '/share/html',
+  exclude: ['*.css.map', '*.js.map'],
 }
