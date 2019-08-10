@@ -54,16 +54,16 @@ const timeElapse = (date) => {
   document.getElementById('elapseClock').innerHTML = result
 }
 
-const showCopyrights = () => {
-  const copyright = document.getElementById('copyright')
-  copyright.innerText = '2015 - Forever ❤️ '
-  copyright.style.transition = 'opacity 5s'
-  copyright.style.bottom = '5px'
-  copyright.style.opacity = '1'
-}
 
 const showMessages = () => {
-  document.getElementById('messageTitle').innerText = '在一起'
+  document.getElementById('messageTitle').innerText = 'I`m missing you'
+  document.querySelector('#message').innerHTML = `
+    <p>我们 漂浮在茫茫人海</p>
+    <p style="margin-bottom: 15px">未来 如星火忽明忽暗</p>
+    <p>而我握着 名为“缘”的线头</p>
+    <p>仍期待着 与“八月”的故事</p>
+  `
+
   const messages = document.getElementById('messages')
   const gardenCanvasRect = gardenCanvas.getBoundingClientRect()
   messages.style.position = 'absolute'
@@ -71,10 +71,6 @@ const showMessages = () => {
   messages.style.top = `${parseFloat(gardenCanvas.style.paddingTop) + gardenCanvasRect.height * rate}px`
   messages.style.transition = 'opacity 5s'
   messages.style.opacity = '1'
-
-  setTimeout(() => {
-    showCopyrights()
-  }, 2200)
 }
 
 const startHeartAnimation = () => {
@@ -111,7 +107,7 @@ setTimeout(() => {
 }, 0)
 
 const together = new Date()
-together.setFullYear(2015, 8, 15)
+together.setFullYear(2019, 1, 17)
 together.setHours(0)
 together.setMinutes(0)
 together.setSeconds(0)

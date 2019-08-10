@@ -97,3 +97,11 @@ body {
 	top: 100px;
 	left:0px;
 }
+
+#message{
+  margin-top: 30vh;
+}
+
+#message p{
+  margin: 10px 0;
+}
