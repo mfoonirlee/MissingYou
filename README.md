@@ -14,4 +14,4 @@ yarn build
 
 ## Link
 
-[demo] https://mfoonirlee.github.io/love/dist/index.html
+[demo] https://mfoonirlee.github.io/MissingYou/build/index.html
