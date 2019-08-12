@@ -14,6 +14,4 @@ yarn build
 
 ## Link
 
-```uri
-http://ouomom7dd.bkt.clouddn.com/
-```
+[demo] https://mfoonirlee.github.io/love/dist/index.html
