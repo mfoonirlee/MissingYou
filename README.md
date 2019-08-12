@@ -1,4 +1,4 @@
-# Love - Pure Javascript, Pure CSS, Pure Love For My Girl
+# Missing You - Pure Javascript, Pure CSS, Pure Missing For My Girl
 
 ## How to Start
 
@@ -14,6 +14,4 @@ yarn build
 
 ## Link
 
-```uri
-http://ouomom7dd.bkt.clouddn.com/
-```
+[demo] https://mfoonirlee.github.io/love/dist/index.html
