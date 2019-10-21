@@ -1,107 +1,139 @@
 html {
-  touch-action: manipulation;
+    touch-action: manipulation;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	background: #FFFFEE;
-	font-size: 12px;
-	overflow: auto;
+    margin: 0;
+    padding: 0;
+    background: #FFFFEE;
+    font-size: 12px;
+    overflow: auto;
 }
 
 #main {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    filter: blur(1.5px);
 }
 
 #content {
-	width: 100%;
+    width: 100%;
 }
 
 #loveHeart {
-  text-align: center;
+    text-align: center;
 }
 
 #elapseClock {
-	font-size: 12px;
-	margin-top: 10px;
-	margin-bottom: 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-#messages{
-	font-family: "sans-serif";
-	width: 100%;
-	font-size: 16px;
-  color:#666;
-	width: 100%;
-  opacity: 0;
+#messages {
+    font-family: "sans-serif";
+    width: 100%;
+    font-size: 16px;
+    color: #666;
+    width: 100%;
+    opacity: 0;
 }
 
-#elapseClock .digit{
-	font-family: "digit";
-	font-size: 26px;
+#elapseClock .digit {
+    font-family: "digit";
+    font-size: 26px;
 }
 
 .bell {
-  width: 2rem;
-  animation: bellshake 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
-  backface-visibility: hidden;
-  transform-origin: top right;
+    width: 2rem;
+    animation: bellshake 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+    backface-visibility: hidden;
+    transform-origin: top right;
 }
 
 @keyframes bellshake {
-  0% {
-    transform: rotate(0);
-  }
-  3% {
-    transform: rotate(5deg);
-  }
-  7% {
-    transform: rotate(-5deg);
-  }
-  11% {
-    transform: rotate(4deg);
-  }
-  15% {
-    transform: rotate(-4deg);
-  }
-  18% {
-    transform: rotate(2deg);
-  }
-  21% {
-    transform: rotate(-2deg);
-  }
-  23% {
-    transform: rotate(1deg);
-  }
-  25%, 100% {
-    transform: rotate(0);
-  }
+    0% {
+        transform: rotate(0);
+    }
+    3% {
+        transform: rotate(5deg);
+    }
+    7% {
+        transform: rotate(-5deg);
+    }
+    11% {
+        transform: rotate(4deg);
+    }
+    15% {
+        transform: rotate(-4deg);
+    }
+    18% {
+        transform: rotate(2deg);
+    }
+    21% {
+        transform: rotate(-2deg);
+    }
+    23% {
+        transform: rotate(1deg);
+    }
+    25%,
+    100% {
+        transform: rotate(0);
+    }
 }
 
-#copyright{
-	margin-top: 10px;
-	text-align: center;
-	width:100%;
-	color:#666;
-  position: absolute;
-  opacity: 0;
+#copyright {
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    color: #666;
+    position: absolute;
+    opacity: 0;
 }
 
-#errorMsg{
-	width: 100%;
-	text-align: center;
-	font-size: 24px;
-	position: absolute;
-	top: 100px;
-	left:0px;
+#errorMsg {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    position: absolute;
+    top: 100px;
+    left: 0px;
 }
 
-#message{
-  margin-top: 30vh;
+#message {
+    margin-top: 30vh;
 }
 
-#message p{
-  margin: 10px 0;
+#message p {
+    margin: 10px 0;
+}
+
+.move-text {
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 25%;
+    height: 40%;
+    overflow: hidden;
+    color: #666;
+    font-size: 16px;
+    -webkit-mask-image: linear-gradient(0deg, transparent, #666 50%, transparent 100%);
+}
+
+.move-list {
+    will-change: transform;
+    animation: moveTop 180s linear;
+}
+
+.move-list>p {
+    text-shadow: 0px 0px 3px #666;
+}
+
+@keyframes moveTop {
+    from {
+        transform: translateY(7.5%);
+    }
+    to {
+        transform: translateY(-120%);
+    }
 }

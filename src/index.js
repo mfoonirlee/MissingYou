@@ -1,6 +1,7 @@
 import './index.css'
 import registerServiceWorker from './registerServiceWorker'
 import Garden from './garden'
+import runTxt from './text'
 
 registerServiceWorker()
 
@@ -33,7 +34,7 @@ const getHeartPoint = (angle) => {
 }
 
 const timeElapse = (date) => {
-  const current = Date()
+  const current = new Date()
   let seconds = (Date.parse(current) - Date.parse(date)) / 1000
   const days = Math.floor(seconds / (3600 * 24))
   seconds %= (3600 * 24)
@@ -58,10 +59,8 @@ const timeElapse = (date) => {
 const showMessages = () => {
   document.getElementById('messageTitle').innerText = 'I`m missing you'
   document.querySelector('#message').innerHTML = `
-    <p>我们 漂浮在茫茫人海</p>
-    <p style="margin-bottom: 15px">未来 如星火忽明忽暗</p>
-    <p>而我握着 名为“缘”的线头</p>
-    <p>仍期待着 与“八月”的故事</p>
+    <p style="font-size: 20px;">Anniversary for 100 days</p>
+    <p style="font-size: 18px;text-align: right;padding: 0 40px;">Chris.Li</p>
   `
 
   const messages = document.getElementById('messages')
@@ -107,7 +106,7 @@ setTimeout(() => {
 }, 0)
 
 const together = new Date()
-together.setFullYear(2019, 1, 17)
+together.setFullYear(2019, 6, 14)
 together.setHours(0)
 together.setMinutes(0)
 together.setSeconds(0)
@@ -118,3 +117,5 @@ timeElapse(together)
 setInterval(() => {
   timeElapse(together)
 }, 500)
+
+runTxt()
